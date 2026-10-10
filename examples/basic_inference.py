@@ -111,9 +111,10 @@ Example:
     # Save outputs
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-
+    out_img = os.path.splitext(os.path.basename(person_path))[0]
+    
     for i, output_image in enumerate(result.images):
-        output_path = output_dir / f"output_{i:02d}.png"
+        output_path = output_dir / f"{out_img}_output_{i:02d}.png"
         output_image.save(output_path)
         print(f"Saved: {output_path}")
 
